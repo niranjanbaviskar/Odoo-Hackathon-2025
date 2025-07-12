@@ -24,7 +24,7 @@ export const AnnotationControls: React.FC<AnnotationControlsProps> = ({
       setIsHighlighting(true);
       setIsSubmitting(true);
       
-      // Placeholder coordinates; replace with mouse-based selection in production
+      // Placeholder coordinates; replace with the mouse-based selection in production
       const coords = { x: 100, y: 100, width: 200, height: 20 };
       onHighlight(coords);
       
