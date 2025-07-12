@@ -367,3 +367,7 @@ export default function QuizResults({
     </div>
   );
 }
+
+
+
+//correct quiz result shown
