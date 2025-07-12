@@ -21,7 +21,7 @@ const ScrollToTop: React.FC<ScrollToTopProps> = ({
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // initial check
+    handleScroll(); 
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, [scrollDistance]);
