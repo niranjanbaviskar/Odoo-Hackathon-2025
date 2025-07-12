@@ -64,7 +64,7 @@ export default function ChapterContent() {
     navigate("/quiz");
   };
 
-  // handle key press to navigate to next and previous chapter
+  // handle key press to the navigate to next and previous chapter
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       // Skip if user is typing in an input field
