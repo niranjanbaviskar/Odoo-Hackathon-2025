@@ -110,3 +110,6 @@ export const AnnotationControls: React.FC<AnnotationControlsProps> = ({
     </div>
   );
 };
+
+
+//annotations
