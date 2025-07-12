@@ -9,7 +9,7 @@ load_dotenv()
 app = Flask(__name__)
 CORS(app)
 
-# Bhashini translation endpoint
+# Bhashini translation endpoints
 @app.route('/translate', methods=['POST'])
 def translate():
     data = request.get_json()
