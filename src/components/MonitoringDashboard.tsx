@@ -59,7 +59,7 @@ const MonitoringDashboard: React.FC = () => {
     };
   }, []);
 
-  // Calculate stats.
+  // Calculate stats
   const successRate = metrics.length > 0 ? (metrics.filter(m => m.success).length / metrics.length) * 100 : 0;
   const averageDuration = metrics.length > 0 ? metrics.reduce((acc, m) => acc + m.duration, 0) / metrics.length : 0;
   const recentFailures = metrics.filter(m => !m.success).length;
