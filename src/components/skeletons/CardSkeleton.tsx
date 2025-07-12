@@ -30,7 +30,7 @@ export function CardsGridSkeleton({ count = 6 }: { count?: number }) {
       {Array(count)
         .fill(0)
         .map((_, i) => (
-          <CardSkeleton key={i} />
+          <CardSkeleton key={i} />             //
         ))}
     </div>
   );
