@@ -44,7 +44,7 @@ export default function Community() {
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(true);
 
-  // Form data for the new community
+  // Form data for new community
   const [formData, setFormData] = useState({
     title: "",
     description: "",
