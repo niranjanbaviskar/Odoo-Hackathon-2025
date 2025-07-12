@@ -353,5 +353,5 @@ export default function AIKnowledgeBot() {
         </button>
       )}
     </div>
-  );
+  ); //buttons
 }
