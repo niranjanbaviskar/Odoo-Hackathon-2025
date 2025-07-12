@@ -217,7 +217,7 @@ export const Dashboard: React.FC = () => {
 
       if (notebookError) throw notebookError;
 
-      // Create initial whiteboards
+      // Create an initial whiteboards
       const whiteboards = Array.from({ length: newNotebookSize }, (_, i) => ({
         title: `Page ${i + 1}`,
         user_id: user.id,
