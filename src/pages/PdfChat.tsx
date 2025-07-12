@@ -19,7 +19,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { useToast } from "@/components/ui/use-toast";
 import { Translate } from "../components/Translate";
 
-// Set worker path
+// Set worker paths
 // @ts-expect-error: Setting workerSrc directly may not be recognized by TypeScript typings of pdfjsLib
 GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
 
