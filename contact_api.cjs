@@ -19,7 +19,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// API endpoint to handle contact form submissions
+// API endpoint to the  handle contact form submissions
 app.post('/api/contact', async (req, res) => {
   const { firstName, lastName, email, inquiryType, message } = req.body;
   if (!firstName || !lastName || !email || !message) {
