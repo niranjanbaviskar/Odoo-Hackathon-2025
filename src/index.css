@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  :root {
+    /* === Base Theme === */
+    --background:             220 20% 98%;   /* near-white with a hint of blue */
+    --foreground:             240 6% 10%;    /* dark gray text */
+
+    /* === Surface Elements === */
+    --card:                   220 14% 96%;   /* soft paper gray */
+    --card-foreground:        240 6% 15%;    /* standard readable text */
+
+    --popover:                220 12% 95%;
+    --popover-foreground:     240 6% 12%;
+
+    /* === Primary Theme (Modern Purple) === */
+    --primary:                265 90% 72%;   /* soft modern purple */
+    --primary-foreground:     0 0% 100%;     /* white text on purple */
+
+    --accent:                 265 80% 90%;   /* light lavender */
+    --accent-foreground:      240 6% 20%;
+
+    /* === Secondary / Muted === */
+    --secondary:              240 8% 94%;    /* light grayish blue */
+    --secondary-foreground:   240 6% 25%;
+
+    --muted:                  240 4% 90%;
+    --muted-foreground:       240 3.5% 50%;
+
+    /* === Alerts & Actions === */
+    --destructive:            0 85% 55%;     /* standard red */
+    --destructive-foreground: 0 0% 100%;
+
+    /* === Inputs & Borders === */
+    --border:                 240 6% 85%;
+    --input:                  240 5% 88%;
+    --ring:                   265 90% 72%;   /* match primary for focus rings */
+
+    /* === Chart Colors (Soft & Balanced) === */
+    --chart-1:                265 90% 72%;   /* purple */
+    --chart-2:                180 55% 45%;   /* teal */
+    --chart-3:                210 40% 30%;   /* slate blue */
+    --chart-4:                40 90% 60%;    /* golden amber */
+    --chart-5:                25 95% 60%;    /* orange */
+
+    /* === Misc === */
+    --radius:                 0.5rem;
+
+    /* === Sidebar (Elegant Contrast) === */
+    --sidebar-background:            220 16% 95%;
+    --sidebar-foreground:           240 5% 20%;
+
+    --sidebar-primary:              265 90% 72%;
+    --sidebar-primary-foreground:  0 0% 100%;
+
+    --sidebar-accent:              265 80% 90%;
+    --sidebar-accent-foreground:   240 6% 15%;
+
+    --sidebar-border:              240 6% 82%;
+    --sidebar-ring:                265 90% 72%;
+  }
+
+
+
+
+  .dark {
+  --background: 222 56% 4%; /* matches bg-gray-950 */
+
+
+  --foreground: 0 0% 98%; /* near-white text */
+
+  --card: 222 29% 17% / 0.3;
+
+  --card-foreground: 0 0% 98%;
+
+  --popover: 240 10% 5.5%;
+  --popover-foreground: 0 0% 98%;
+
+  --primary: 270 100% 70%; /* text-purple-400 */
+  --primary-foreground: 240 10% 10%; /* dark background for light text */
+
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+
+  --muted: 240 3.7% 18%;
+  --muted-foreground: 240 5% 60%;
+
+  --accent: 270 80% 65%; /* purple-based accent */
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 72% 45%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 240 4% 20%; /* more visible borders in dark */
+  --input: 240 4% 20%;
+  --ring: 270 100% 70%; /* purple ring */
+
+  --chart-1: 270 100% 70%; /* purple */
+  --chart-2: 160 60% 45%; /* greenish */
+  --chart-3: 30 80% 55%;  /* orange */
+  --chart-4: 280 65% 60%; /* pinkish purple */
+  --chart-5: 340 75% 55%; /* reddish */
+
+  --radius: 0.5rem;
+
+  --sidebar-background: 240 6% 6%;
+  --sidebar-foreground: 240 5% 95%;
+
+  --sidebar-primary: 270 100% 70%;
+  --sidebar-primary-foreground: 0 0% 12%;
+
+  --sidebar-accent: 270 90% 65%;
+  --sidebar-accent-foreground: 0 0% 100%;
+
+  --sidebar-border: 240 4% 20%;
+  --sidebar-ring: 270 100% 70%;
+}
+
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.hhWyeD {
+  display: none;
+}
+
+/* from here */
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  display: inline-block; 
+  transition: 
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.3s ease;
+}
+
+a:active {
+  transform: scale(0.94);
+  border-radius: 5%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
+
+
+
