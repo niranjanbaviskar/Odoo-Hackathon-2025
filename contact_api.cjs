@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5500;
 app.use(cors());
 app.use(express.json());
 
-// Configure your transporter (copied from nodemailer_api.cjs)
+// Configure your transporter  (copied from nodemailer_api.cjs)
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
