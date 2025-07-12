@@ -28,4 +28,4 @@ export default function Avatar({ name, size = 'md' }: AvatarProps) {
   );
 }
 
-//ok avtar
+
