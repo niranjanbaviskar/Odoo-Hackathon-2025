@@ -293,3 +293,5 @@ export default function QuizSetup({ onStart, initialConfig }: Props) {
     </div>
   );
 }
+
+//quiz setup
