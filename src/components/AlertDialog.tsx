@@ -69,3 +69,7 @@ export const AlertDialog: React.FC<AlertDialogProps> = ({
     </div>
   );
 };
+
+
+
+//open close
