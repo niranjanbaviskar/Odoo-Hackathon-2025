@@ -15,7 +15,7 @@ export default function Login() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Optional: Redirect if already logged in
+  // Optional: Redirect if already logg in
   useEffect(() => {
   const checkSession = async () => {
     try {
