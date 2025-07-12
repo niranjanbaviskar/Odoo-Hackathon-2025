@@ -119,7 +119,7 @@ export default function Courses() {
       );
     }
 
-    // Apply bookmarks filter
+    //  bookmarks filter
     if (showBookmarked) {
       filtered = filtered.filter((course) => isBookmarked(course.id));
     }
