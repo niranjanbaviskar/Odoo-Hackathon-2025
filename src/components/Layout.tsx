@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 import AIKnowledgeBot from "./AIKnowledgeBot";
 import ScrollToTopButton from "./ScrollToTop";
 
-// ScrollToTop component for the route changes
+// ScrollToTop component for route changes
 function ScrollToTopOnRoute() {
   const { pathname } = useLocation();
 
