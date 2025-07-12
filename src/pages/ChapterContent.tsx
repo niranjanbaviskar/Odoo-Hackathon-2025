@@ -97,7 +97,7 @@ export default function ChapterContent() {
       }
     };
 
-    // Add event listener when the component mounts
+    // Add event listener when component mounts
     window.addEventListener("keydown", handleKeyDown);
 
     // Remove event listener when component unmounts
