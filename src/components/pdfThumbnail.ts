@@ -38,3 +38,5 @@ export const PdfThumbnail: React.FC<PdfThumbnailProps> = ({
     </div>
   );
 };
+
+//pdfupload
