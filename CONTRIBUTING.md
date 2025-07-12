@@ -1,6 +1,6 @@
-# Contributing to Learnify
+# Contributing to SkillSwap
 
-First off, thank you for considering contributing to Learnify! It's people like you that make Learnify such a great tool.
+First off, thank you for considering contributing to SkillSwap! It's people like you that make SkillSwap such a great tool.
 
 ## Code of Conduct
 
@@ -203,4 +203,4 @@ Don't hesitate to ask questions about the contribution process. We'll be happy t
 
 ## License
 
-By contributing to Learnify, you agree that your contributions will be licensed under its MIT license.
+By contributing to SkillSwap, you agree that your contributions will be licensed under its MIT license.

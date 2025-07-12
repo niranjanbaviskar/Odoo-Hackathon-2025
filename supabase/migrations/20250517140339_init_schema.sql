@@ -1084,13 +1084,13 @@ ALTER TABLE ONLY "public"."whiteboards"
 
 CREATE POLICY "Allow bot to create chapters" ON "public"."chapters" FOR INSERT TO "authenticated" WITH CHECK ((EXISTS ( SELECT 1
    FROM "auth"."users"
-  WHERE (("auth"."uid"() = "users"."id") AND (("users"."email")::"text" = 'system@learnify.bot'::"text")))));
+  WHERE (("auth"."uid"() = "users"."id") AND (("users"."email")::"text" = 'system@SkillSwap.bot'::"text")))));
 
 
 
 CREATE POLICY "Allow bot to create courses" ON "public"."courses" FOR INSERT TO "authenticated" WITH CHECK ((EXISTS ( SELECT 1
    FROM "auth"."users"
-  WHERE (("auth"."uid"() = "users"."id") AND (("users"."email")::"text" = 'system@learnify.bot'::"text")))));
+  WHERE (("auth"."uid"() = "users"."id") AND (("users"."email")::"text" = 'system@SkillSwap.bot'::"text")))));
 
 
 

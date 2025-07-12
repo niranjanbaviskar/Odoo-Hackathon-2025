@@ -66,7 +66,7 @@ export async function storeContentWithEmbedding(chunk: ContentChunk): Promise<vo
     
     // Store in Supabase vector table
     const { error } = await supabase
-      .from('learnify_content_vectors')
+      .from('SkillSwap_content_vectors')
       .insert({
         content_id: chunk.content_id,
         content_type: chunk.content_type,
@@ -102,7 +102,7 @@ export async function searchSimilarContent(
     const queryEmbedding = await generateEmbedding(query);
     
     // Call the Supabase function for vector similarity search
-    const { data, error } = await supabase.rpc('search_learnify_content', {
+    const { data, error } = await supabase.rpc('search_SkillSwap_content', {
       query_embedding: `[${queryEmbedding.join(',')}]`,
       content_types: contentTypes || null,
       similarity_threshold: similarityThreshold,
@@ -151,7 +151,7 @@ export async function batchStoreContent(chunks: ContentChunk[]): Promise<void> {
 }
 
 /**
- * Initialize vector database with existing Learnify content
+ * Initialize vector database with existing SkillSwap content
  * This is the function that VectorDatabaseAdmin expects
  */
 export async function initializeVectorDatabase(): Promise<void> {
@@ -231,13 +231,13 @@ export async function initializeVectorDatabase(): Promise<void> {
       console.log('Quiz questions table not found, skipping...');
     }
     
-    // Add some default Learnify content if no database content exists
+    // Add some default SkillSwap content if no database content exists
     if (chunks.length === 0) {
       chunks.push({
         content_id: 'default-platform-001',
         content_type: 'page',
-        title: 'Learnify Platform Overview',
-        content_chunk: 'Learnify is an AI-powered interactive learning platform that offers courses, quizzes, PDF tools, and learning roadmaps to help you achieve your educational goals.',
+        title: 'SkillSwap Platform Overview',
+        content_chunk: 'SkillSwap is an AI-powered interactive learning platform that offers courses, quizzes, PDF tools, and learning roadmaps to help you achieve your educational goals.',
         metadata: { priority: 'high', category: 'platform' },
         source_url: '/'
       });
@@ -245,7 +245,7 @@ export async function initializeVectorDatabase(): Promise<void> {
       chunks.push({
         content_id: 'default-features-001', 
         content_type: 'feature',
-        title: 'Learnify Core Features',
+        title: 'SkillSwap Core Features',
         content_chunk: 'Core features include interactive quiz system with GROQ AI, course management, advanced PDF tools, learning roadmaps, expert chat support, and community learning.',
         metadata: { priority: 'high', category: 'features' },
         source_url: '/features'
@@ -332,12 +332,12 @@ export async function testSearchFunctionality(): Promise<void> {
     
     // Test if we have any content in the database
     const { data: contentCheck, error } = await supabase
-      .from('learnify_content_vectors')
+      .from('SkillSwap_content_vectors')
       .select('count(*)')
       .single();
     
     if (error) {
-      throw new Error('Cannot access learnify_content_vectors table');
+      throw new Error('Cannot access SwapSkill_content_vectors table');
     }
     
     const contentCount = contentCheck?.count || 0;
@@ -349,9 +349,9 @@ export async function testSearchFunctionality(): Promise<void> {
     
     // Test basic text search
     const { data: searchResults } = await supabase
-      .from('learnify_content_vectors')
+      .from('SkillSwap_content_vectors')
       .select('*')
-      .ilike('content_chunk', '%learnify%')
+      .ilike('content_chunk', '%SkillSwap%')
       .limit(3);
     
     if (searchResults && searchResults.length > 0) {

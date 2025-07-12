@@ -89,7 +89,7 @@ export default function AboutPage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent-foreground to-primary pb-4">
-            About Learnify
+            About SkillSwap
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-xl text-muted-foreground leading-relaxed">
             We're on a mission to transform education through AI-powered
@@ -107,10 +107,10 @@ export default function AboutPage() {
               <h2 className="text-3xl font-bold mb-6 text-foreground">Our Story</h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  At Learnify, we believe that education is a dynamic
+                  At SwapSkill, we believe that education is a dynamic
                   journey—one that should evolve with the learner. Born from a
                   vision to redefine how we absorb and apply knowledge in the
-                  digital age, Learnify merges innovative technology with an
+                  digital age, SwapSkill merges innovative technology with an
                   unwavering commitment to community. We know that traditional
                   education often falls short of today's needs, and that's why
                   we're here to transform the learning experience.
@@ -126,7 +126,7 @@ export default function AboutPage() {
                   growth.
                 </p>
                 <p>
-                  Learnify is more than just a learning management system; it's
+                  SwapSkill is more than just a learning management system; it's
                   a vibrant community of educators, experts, and learners united
                   by a common passion for discovery. We provide the resources
                   and support necessary to not only master new skills but also
@@ -144,7 +144,7 @@ export default function AboutPage() {
                   src="https://i.ibb.co/kggmmwrf/image.png"
                   width={800}
                   height={600}
-                  alt="Learnify team working together"
+                  alt="SwapSkill team working together"
                   className="w-full h-auto rounded-xl"
                 />
               </div>
@@ -159,7 +159,7 @@ export default function AboutPage() {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4 text-foreground">Our Values</h2>
             <p className="max-w-2xl mx-auto text-lg text-muted-foreground">
-              These core principles guide everything we do at Learnify, from
+              These core principles guide everything we do at SkillSwap, from
               product development to customer support.
             </p>
           </div>
@@ -193,7 +193,7 @@ export default function AboutPage() {
               Our Leadership Team
             </h2>
             <p className="max-w-2xl mx-auto text-lg text-muted-foreground">
-              Meet the passionate experts behind Learnify who are dedicated to
+              Meet the passionate experts behind SkillSwap who are dedicated to
               transforming education.
             </p>
           </div>
@@ -237,7 +237,7 @@ export default function AboutPage() {
             Join Us on Our Mission
           </h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Be part of the education revolution. Start learning with Learnify
+            Be part of the education revolution. Start learning with SkillSwap
             today or explore opportunities to join our team.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

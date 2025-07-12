@@ -108,7 +108,7 @@ async function vectorSearch(query: string, matchCount: number = 5): Promise<Know
     const embedding = await generateEmbeddingWithTracking(query);
     if (!embedding) return [];
 
-    const { data, error } = await supabase.rpc('search_learnify_content', {
+    const { data, error } = await supabase.rpc('search_SkillSwap_content', {
       query_embedding: `[${embedding.join(',')}]`,
       content_types: null,
       similarity_threshold: 0.6,
@@ -137,7 +137,7 @@ async function textSearch(query: string, matchCount: number = 8): Promise<Knowle
     const searchTerms = query.toLowerCase().split(' ').filter(term => term.length > 2);
     
     const { data, error } = await supabase
-      .from('learnify_content_vectors')
+      .from('SkillSwap_content_vectors')
       .select('*')
       .or(
         searchTerms.map(term => 
@@ -203,11 +203,11 @@ async function textSearch(query: string, matchCount: number = 8): Promise<Knowle
 // Improved token reset function
 function resetTokensIfNeeded() {
   const today = new Date().toDateString();
-  const lastReset = localStorage.getItem('learnify_token_reset_date');
+  const lastReset = localStorage.getItem('SkillSwap_token_reset_date');
   
   if (lastReset !== today) {
     dailyTokenUsage = 0;
-    localStorage.setItem('learnify_token_reset_date', today);
+    localStorage.setItem('SkillSwap_token_reset_date', today);
     console.log('🔄 Daily token usage reset');
   }
 }
@@ -296,10 +296,10 @@ function createContextualPrompt(
   }
 
   // Enhanced system prompt with conversation awareness
-  return `You are an advanced AI learning assistant for Learnify, powered by a hybrid knowledge base system that combines semantic vector search with intelligent text matching.
+  return `You are an advanced AI learning assistant for SkillSwap, powered by a hybrid knowledge base system that combines semantic vector search with intelligent text matching.
 
 PLATFORM OVERVIEW:
-Learnify is a comprehensive AI-powered learning platform featuring:
+SkillSwap is a comprehensive AI-powered learning platform featuring:
 • Interactive Quiz System with GROQ AI for contextual question generation
 • Course Management with progress tracking and multimedia content
 • Advanced PDF Tools for document analysis and interactive learning
@@ -312,7 +312,7 @@ RESPONSE GUIDELINES:
 1. Provide helpful, encouraging, and educational responses
 2. Use the provided context to give accurate, specific answers
 3. Reference sources naturally when information is available
-4. For limited context, provide general guidance about Learnify features
+4. For limited context, provide general guidance about SkillSwap features
 5. Maintain a supportive, professional learning tone
 6. Include actionable next steps when possible
 7. Format responses clearly with emphasis and structure
@@ -331,7 +331,7 @@ ${conversationContext}
 
 Current Query: ${userQuery}
 
-Based on this context, conversation history, and your knowledge of learning platforms, provide a comprehensive response to the user's question. If the context doesn't fully address their question, acknowledge this and provide helpful guidance while highlighting relevant Learnify features.`;
+Based on this context, conversation history, and your knowledge of learning platforms, provide a comprehensive response to the user's question. If the context doesn't fully address their question, acknowledge this and provide helpful guidance while highlighting relevant SkillSwap features.`;
 }
 
 /**
@@ -372,7 +372,7 @@ export async function generateStreamingResponse(
     if (keywordResponse && knowledgeItems.length === 0) {
       // Stream keyword response
       const words = keywordResponse.split(' ');
-      const sources = ['Learnify Platform Guide'];
+      const sources = ['SkillSwap Platform Guide'];
       
       for (let i = 0; i < words.length; i++) {
         const chunk = (i === 0 ? '' : ' ') + words[i];
@@ -393,16 +393,16 @@ export async function generateStreamingResponse(
     // Send final metadata
     const sources = knowledgeItems.length > 0 
       ? knowledgeItems.map(item => item.title).slice(0, 5)
-      : ['Learnify Platform Guide'];
+      : ['SkillSwap Platform Guide'];
       
     onChunk('', sources, confidence);
 
   } catch (error) {
     console.error('Error generating streaming AI response:', error);
     
-    const fallbackMessage = `I'm here to help with your learning on Learnify! 🚀
+    const fallbackMessage = `I'm here to help with your learning on SkillSwap! 🚀
 
-**Learnify Features:**
+**SkillSwap Features:**
 • **Interactive Quizzes** - AI-generated questions to test knowledge
 • **Courses** - Structured learning with progress tracking
 • **PDF Tools** - Analyze documents and create study materials  
@@ -416,7 +416,7 @@ What would you like to explore?`;
     const words = fallbackMessage.split(' ');
     for (let i = 0; i < words.length; i++) {
       const chunk = (i === 0 ? '' : ' ') + words[i];
-      onChunk(chunk, i === words.length - 1 ? ['Learnify Platform Guide'] : undefined, i === words.length - 1 ? 'medium' : undefined);
+      onChunk(chunk, i === words.length - 1 ? ['SkillSwap Platform Guide'] : undefined, i === words.length - 1 ? 'medium' : undefined);
       await new Promise(resolve => setTimeout(resolve, 50));
     }
   }
@@ -532,7 +532,7 @@ export async function generateAIResponse(userQuery: string, conversationHistory:
     if (keywordResponse && knowledgeItems.length === 0) {
       return {
         content: keywordResponse,
-        sources: ['Learnify Platform Guide'],
+        sources: ['SkillSwap Platform Guide'],
         confidence: 'medium',
         searchMethod: 'text'
       };
@@ -544,7 +544,7 @@ export async function generateAIResponse(userQuery: string, conversationHistory:
     
     const sources = knowledgeItems.length > 0 
       ? knowledgeItems.map(item => item.title).slice(0, 5)
-      : ['Learnify Platform Guide'];
+      : ['SkillSwap Platform Guide'];
 
     return {
       content: aiResponse,
@@ -558,9 +558,9 @@ export async function generateAIResponse(userQuery: string, conversationHistory:
     console.error('Error generating AI response:', error);
     
     return {
-      content: `I'm here to help with your learning on Learnify! 🚀
+      content: `I'm here to help with your learning on SkillSwap! 🚀
 
-**Learnify Features:**
+**SkillSwap Features:**
 • **Interactive Quizzes** - AI-generated questions to test knowledge
 • **Courses** - Structured learning with progress tracking
 • **PDF Tools** - Analyze documents and create study materials  
@@ -569,7 +569,7 @@ export async function generateAIResponse(userQuery: string, conversationHistory:
 • **Community** - Collaborative learning with peers
 
 What would you like to explore?`,
-      sources: ['Learnify Platform Guide'],
+      sources: ['SkillSwap Platform Guide'],
       confidence: 'medium',
       searchMethod: 'text'
     };
@@ -582,8 +582,8 @@ What would you like to explore?`,
 export function getKeywordResponse(query: string): string | null {
   const lowerQuery = query.toLowerCase();
   
-  if (/(what is learnify|about learnify|learnify platform)/i.test(lowerQuery)) {
-    return `**Learnify** is an advanced AI-powered learning platform that revolutionizes education through intelligent technology! 🚀
+  if (/(what is SkillSwap|about SkillSwap|SkillSwap platform)/i.test(lowerQuery)) {
+    return `**SkillSwap** is an advanced AI-powered learning platform that revolutionizes education through intelligent technology! 🚀
 
 **🎯 Core Features:**
 • **Smart Quiz System** - Generate custom quizzes using GROQ AI from any topic or PDF
@@ -610,7 +610,7 @@ Ready to transform your learning journey? What subject would you like to explore
   }
   
   if (/(hello|hi|hey)/i.test(lowerQuery)) {
-    return `Hello! 👋 Welcome to Learnify's AI Learning Assistant!
+    return `Hello! 👋 Welcome to SkillSwap's AI Learning Assistant!
 
 I'm powered by a hybrid knowledge base system that combines:
 🎯 **Vector Search** - For deep semantic understanding

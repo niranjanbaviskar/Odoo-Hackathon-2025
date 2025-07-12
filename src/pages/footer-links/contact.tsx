@@ -80,7 +80,7 @@ export default function ContactPage() {
     {
       question: "How can I get support for technical issues?",
       answer:
-        "For technical support, please email support@learnify.com with details of your issue. Our team typically responds within 24 hours on business days.",
+        "For technical support, please email support@SkillSwap.com with details of your issue. Our team typically responds within 24 hours on business days.",
     },
     {
       question: "Do you offer educational partnerships?",
@@ -93,7 +93,7 @@ export default function ContactPage() {
         "We offer custom solutions for organizations. Select 'Enterprise' in the contact form and provide details about your needs.",
     },
     {
-      question: "How do I apply for a job at Learnify?",
+      question: "How do I apply for a job at SkillSwap?",
       answer: "We are not currently hiring.",
     },
   ];
@@ -425,7 +425,7 @@ export default function ContactPage() {
             Ready to Transform Your Learning?
           </h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join thousands of learners who are already using Learnify to achieve
+            Join thousands of learners who are already using SkillSwap to achieve
             their educational goals.
           </p>
         </div>

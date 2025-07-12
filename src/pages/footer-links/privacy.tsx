@@ -62,7 +62,7 @@ export default function PrivacyPage() {
               </div>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  At Learnify, we respect your privacy and are committed to
+                  At SkillSwap, we respect your privacy and are committed to
                   protecting your personal data. This privacy policy will inform
                   you about how we look after your personal data when you visit
                   our website and tell you about your privacy rights and how the

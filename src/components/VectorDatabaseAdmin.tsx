@@ -68,7 +68,7 @@ export default function VectorDatabaseAdmin() {
       
       // Get total count and content types
       const { data: contentData, error: contentError } = await supabase
-        .from('learnify_content_vectors')
+        .from('SkillSwap_content_vectors')
         .select('content_type, created_at');
 
       if (contentError) {
@@ -140,7 +140,7 @@ export default function VectorDatabaseAdmin() {
             <span>Initialize Knowledge Base</span>
           </h3>
           <p className="text-muted-foreground mb-4 text-sm">
-            Load existing Learnify content (courses, roadmaps, scraped pages) into the knowledge base for intelligent search.
+            Load existing SkillSwap content (courses, roadmaps, scraped pages) into the knowledge base for intelligent search.
           </p>
           <button
             onClick={handleInitialize}

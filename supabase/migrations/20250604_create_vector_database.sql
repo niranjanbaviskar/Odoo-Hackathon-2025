@@ -5,8 +5,8 @@
 -- Enable the vector extension if not already enabled
 CREATE EXTENSION IF NOT EXISTS vector;
 
--- Create the vector storage table for Learnify content
-CREATE TABLE IF NOT EXISTS learnify_content_vectors (
+-- Create the vector storage table for SkillSwap content
+CREATE TABLE IF NOT EXISTS SkillSwap_content_vectors (
   id BIGSERIAL PRIMARY KEY,
   content_id VARCHAR(255) NOT NULL,
   content_type VARCHAR(50) NOT NULL, -- 'course', 'quiz', 'roadmap', 'page', 'pdf', 'feature'
@@ -21,29 +21,29 @@ CREATE TABLE IF NOT EXISTS learnify_content_vectors (
 );
 
 -- Create indexes for efficient vector similarity search
-CREATE INDEX IF NOT EXISTS learnify_content_vectors_embedding_idx 
-ON learnify_content_vectors 
+CREATE INDEX IF NOT EXISTS SkillSwap_content_vectors_embedding_idx 
+ON SkillSwap_content_vectors 
 USING ivfflat (embedding vector_cosine_ops)
 WITH (lists = 100);
 
 -- Create indexes for metadata filtering
-CREATE INDEX IF NOT EXISTS learnify_content_vectors_content_type_idx 
-ON learnify_content_vectors (content_type);
+CREATE INDEX IF NOT EXISTS SkillSwap_content_vectors_content_type_idx 
+ON SkillSwap_content_vectors (content_type);
 
-CREATE INDEX IF NOT EXISTS learnify_content_vectors_content_id_idx 
-ON learnify_content_vectors (content_id);
+CREATE INDEX IF NOT EXISTS SkillSwap_content_vectors_content_id_idx 
+ON SkillSwap_content_vectors (content_id);
 
 -- Create index for text search as fallback
-CREATE INDEX IF NOT EXISTS learnify_content_vectors_content_gin_idx 
-ON learnify_content_vectors 
+CREATE INDEX IF NOT EXISTS SkillSwap_content_vectors_content_gin_idx 
+ON SkillSwap_content_vectors 
 USING gin(to_tsvector('english', content_chunk));
 
 -- Create index for created_at for time-based queries
-CREATE INDEX IF NOT EXISTS learnify_content_vectors_created_at_idx 
-ON learnify_content_vectors (created_at DESC);
+CREATE INDEX IF NOT EXISTS SkillSwap_content_vectors_created_at_idx 
+ON SkillSwap_content_vectors (created_at DESC);
 
 -- Function for similarity search with content type filtering
-CREATE OR REPLACE FUNCTION search_learnify_content(
+CREATE OR REPLACE FUNCTION search_SkillSwap_content(
   query_embedding VECTOR(1536),
   content_types TEXT[] DEFAULT NULL,
   similarity_threshold FLOAT DEFAULT 0.7,
@@ -72,7 +72,7 @@ BEGIN
     lcv.metadata,
     lcv.source_url,
     (1 - (lcv.embedding <=> query_embedding)) AS similarity
-  FROM learnify_content_vectors lcv
+  FROM SkillSwap_content_vectors lcv
   WHERE 
     (content_types IS NULL OR lcv.content_type = ANY(content_types))
     AND (1 - (lcv.embedding <=> query_embedding)) > similarity_threshold
@@ -82,20 +82,20 @@ END;
 $$;
 
 -- Trigger to automatically update updated_at
-CREATE TRIGGER update_learnify_content_vectors_updated_at 
-BEFORE UPDATE ON learnify_content_vectors 
+CREATE TRIGGER update_SkillSwap_content_vectors_updated_at 
+BEFORE UPDATE ON SkillSwap_content_vectors 
 FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
--- Insert comprehensive Learnify platform content
-INSERT INTO learnify_content_vectors (content_id, content_type, title, content_chunk, metadata, source_url) VALUES 
+-- Insert comprehensive SkillSwap platform content
+INSERT INTO SkillSwap_content_vectors (content_id, content_type, title, content_chunk, metadata, source_url) VALUES 
 
 -- Core Platform Information
-('learnify-platform-001', 'page', 'What is Learnify', 'Learnify is an AI-powered interactive learning platform that transforms education through intelligent content generation, personalized learning paths, and comprehensive analytics. The platform combines cutting-edge AI technology with proven educational methodologies to create an engaging and effective learning environment.', '{"priority": "high", "category": "platform", "keywords": ["learnify", "platform", "AI", "education"]}', '/'),
+('SkillSwap-platform-001', 'page', 'What is SkillSwap', 'SkillSwap is an AI-powered interactive learning platform that transforms education through intelligent content generation, personalized learning paths, and comprehensive analytics. The platform combines cutting-edge AI technology with proven educational methodologies to create an engaging and effective learning environment.', '{"priority": "high", "category": "platform", "keywords": ["SkillSwap", "platform", "AI", "education"]}', '/'),
 
-('learnify-mission-001', 'page', 'Learnify Mission and Vision', 'Learnify mission is to democratize quality education by making personalized, AI-driven learning accessible to everyone. We envision a future where every learner can achieve their full potential through adaptive, intelligent educational experiences tailored to their unique needs and learning style.', '{"priority": "high", "category": "platform", "keywords": ["mission", "vision", "education", "accessibility"]}', '/about'),
+('SkillSwap-mission-001', 'page', 'SkillSwap Mission and Vision', 'SkillSwap mission is to democratize quality education by making personalized, AI-driven learning accessible to everyone. We envision a future where every learner can achieve their full potential through adaptive, intelligent educational experiences tailored to their unique needs and learning style.', '{"priority": "high", "category": "platform", "keywords": ["mission", "vision", "education", "accessibility"]}', '/about'),
 
 -- Feature Documentation
-('quiz-system-001', 'feature', 'Interactive Quiz System', 'Learnify quiz system uses GROQ AI to generate contextual questions based on topics or PDF content. Features include adjustable difficulty levels (Beginner, Intermediate, Advanced), detailed explanations for each answer, real-time performance analytics, and adaptive learning algorithms that adjust question complexity based on user performance. Users can create custom quizzes from any content instantly and track their progress over time.', '{"feature": "quiz", "priority": "high", "keywords": ["quiz", "GROQ", "AI", "questions", "difficulty", "analytics"]}', '/quiz'),
+('quiz-system-001', 'feature', 'Interactive Quiz System', 'SkillSwap quiz system uses GROQ AI to generate contextual questions based on topics or PDF content. Features include adjustable difficulty levels (Beginner, Intermediate, Advanced), detailed explanations for each answer, real-time performance analytics, and adaptive learning algorithms that adjust question complexity based on user performance. Users can create custom quizzes from any content instantly and track their progress over time.', '{"feature": "quiz", "priority": "high", "keywords": ["quiz", "GROQ", "AI", "questions", "difficulty", "analytics"]}', '/quiz'),
 
 ('course-management-001', 'feature', 'Course Management System', 'Comprehensive course system with structured learning content, progress tracking, skill-based organization, achievements, and certificates. Courses are organized by difficulty level and subject area with multimedia content, interactive elements, chapter-based structure, and speech synthesis for audio learning. The system supports both user-created and AI-generated courses with collaborative features.', '{"feature": "courses", "priority": "high", "keywords": ["courses", "learning", "progress", "certificates", "chapters"]}', '/courses'),
 
@@ -116,28 +116,28 @@ INSERT INTO learnify_content_vectors (content_id, content_type, title, content_c
 ('user-achievements-001', 'feature', 'Achievements and Gamification', 'Comprehensive achievement system with XP points, badges, level progression, streak tracking, and leaderboards. The gamification system includes coins earned through quiz completion, milestone celebrations, and social recognition features that motivate continued learning and engagement.', '{"feature": "achievements", "priority": "medium", "keywords": ["achievements", "gamification", "XP", "badges", "coins"]}', '/achievements'),
 
 -- Getting Started Guide
-('getting-started-001', 'guide', 'Getting Started with Learnify', 'New to Learnify? Start by creating your profile, exploring our course catalog, taking your first quiz, or uploading a PDF for analysis. The platform adapts to your learning style and provides personalized recommendations. Begin with beginner-friendly content and gradually progress to more advanced topics as you build confidence and skills.', '{"category": "guide", "priority": "high", "keywords": ["getting started", "beginner", "tutorial", "onboarding"]}', '/getting-started');
+('getting-started-001', 'guide', 'Getting Started with SkillSwap', 'New to SkillSwap? Start by creating your profile, exploring our course catalog, taking your first quiz, or uploading a PDF for analysis. The platform adapts to your learning style and provides personalized recommendations. Begin with beginner-friendly content and gradually progress to more advanced topics as you build confidence and skills.', '{"category": "guide", "priority": "high", "keywords": ["getting started", "beginner", "tutorial", "onboarding"]}', '/getting-started');
 
 -- Add RLS (Row Level Security) policies if needed
-ALTER TABLE learnify_content_vectors ENABLE ROW LEVEL SECURITY;
+ALTER TABLE SkillSwap_content_vectors ENABLE ROW LEVEL SECURITY;
 
 -- Allow authenticated users to read all content
 CREATE POLICY "Allow authenticated users to read content vectors" 
-ON learnify_content_vectors FOR SELECT 
+ON SkillSwap_content_vectors FOR SELECT 
 TO authenticated 
 USING (true);
 
 -- Allow service role to manage content (for AI operations)
 CREATE POLICY "Allow service role to manage content vectors" 
-ON learnify_content_vectors FOR ALL 
+ON SkillSwap_content_vectors FOR ALL 
 TO service_role 
 USING (true);
 
 -- Grant appropriate permissions
-GRANT SELECT ON learnify_content_vectors TO authenticated;
-GRANT ALL ON learnify_content_vectors TO service_role;
-GRANT EXECUTE ON FUNCTION search_learnify_content TO authenticated;
-GRANT EXECUTE ON FUNCTION search_learnify_content TO service_role;
+GRANT SELECT ON SkillSwap_content_vectors TO authenticated;
+GRANT ALL ON SkillSwap_content_vectors TO service_role;
+GRANT EXECUTE ON FUNCTION search_SkillSwap_content TO authenticated;
+GRANT EXECUTE ON FUNCTION search_SkillSwap_content TO service_role;
 
 -- Add replica identity for better replication (if using logical replication)
-ALTER TABLE learnify_content_vectors REPLICA IDENTITY FULL;
+ALTER TABLE SkillSwap_content_vectors REPLICA IDENTITY FULL;

@@ -1,12 +1,12 @@
 #!/usr/bin/env ts-node
 
-import { LearnifyContentScraper } from './contentScraper';
+import { SkillSwapContentScraper } from './contentScraper';
 
 async function main() {
-  const scraper = new LearnifyContentScraper('http://localhost:5173');
+  const scraper = new SkillSwapContentScraper('http://localhost:5173');
   
   try {
-    console.log('🚀 Starting Learnify Content Acquisition (Phase 1)...');
+    console.log('🚀 Starting SkillSwap Content Acquisition (Phase 1)...');
     console.log('📋 Make sure your dev server is running on localhost:5173');
     console.log('');
 

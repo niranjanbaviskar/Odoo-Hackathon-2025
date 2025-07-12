@@ -64,8 +64,8 @@ export default function TermsPage() {
               <div className="space-y-4 text-muted-foreground">
                 <p>
                   These Terms of Service ("Terms") govern your access to and use
-                  of the Learnify platform, including any content,
-                  functionality, and services offered on or through learnify.com
+                  of the SkillSwap platform, including any content,
+                  functionality, and services offered on or through SkillSwap.com
                   (the "Service").
                 </p>
                 <p>
@@ -85,8 +85,8 @@ export default function TermsPage() {
               </div>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  <strong className="text-card-foreground">"Service"</strong> refers to the Learnify platform,
-                  accessible at learnify.com.
+                  <strong className="text-card-foreground">"Service"</strong> refers to the SkillSwap platform,
+                  accessible at SkillSwap.com.
                 </p>
                 <p>
                   <strong className="text-card-foreground">"User"</strong> refers to any individual who accesses
@@ -228,14 +228,14 @@ export default function TermsPage() {
                 <p>
                   The Service and its original content (excluding User Content),
                   features, and functionality are and will remain the exclusive
-                  property of Learnify and its licensors. The Service is
+                  property of SkillSwap and its licensors. The Service is
                   protected by copyright, trademark, and other laws of both the
                   United States and foreign countries.
                 </p>
                 <p>
                   Our trademarks and trade dress may not be used in connection
                   with any product or service without the prior written consent
-                  of Learnify.
+                  of SkillSwap.
                 </p>
               </div>
             </CardContent>
@@ -248,7 +248,7 @@ export default function TermsPage() {
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  In no event will Learnify, its affiliates, or their licensors,
+                  In no event will SkillSwap, its affiliates, or their licensors,
                   service providers, employees, agents, officers, or directors
                   be liable for damages of any kind, under any legal theory,
                   arising out of or in connection with your use, or inability to
@@ -270,7 +270,7 @@ export default function TermsPage() {
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  You agree to defend, indemnify, and hold harmless Learnify,
+                  You agree to defend, indemnify, and hold harmless SkillSwap,
                   its affiliates, licensors, and service providers, and its and
                   their respective officers, directors, employees, contractors,
                   agents, licensors, suppliers, successors, and assigns from and

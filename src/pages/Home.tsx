@@ -168,7 +168,7 @@ export default function Home() {
       name: "Sarah Johnson",
       role: "Software Developer",
       content:
-        "Learnify transformed how I approach learning new technologies. The interactive quizzes and roadmaps helped me master React in half the time I expected.",
+        "SkillSwap transformed how I approach learning new technologies. The interactive quizzes and roadmaps helped me master React in half the time I expected.",
       rating: 5,
     },
     {
@@ -182,7 +182,7 @@ export default function Home() {
       name: "Priya Sharma",
       role: "UX Designer",
       content:
-        "The community aspect of Learnify sets it apart. I've connected with other designers who've helped me grow my skills exponentially.",
+        "The community aspect of SkillSwap sets it apart. I've connected with other designers who've helped me grow my skills exponentially.",
       rating: 4,
     },
   ];
@@ -229,7 +229,7 @@ export default function Home() {
             </h1>
             <p className="text-lg text-muted-foreground mb-8 text-center max-w-2xl mx-auto">
               <Translate>
-                Learnify empowers you to master new skills with interactive quizzes,
+                SkillSwap empowers you to master new skills with interactive quizzes,
                 AI-driven tools, and a vibrant community. Start your journey today!
               </Translate>
             </p>
@@ -394,7 +394,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              <Translate>Why Choose Learnify?</Translate>
+              <Translate>Why Choose SkillSwap?</Translate>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               <Translate>Experience the advantages of our modern learning platform.</Translate>
@@ -464,7 +464,7 @@ export default function Home() {
             <Translate>Ready to Start Your Learning Journey?</Translate>
           </h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            <Translate>Join thousands of learners who are already transforming their education with Learnify.</Translate>
+            <Translate>Join thousands of learners who are already transforming their education with SkillSwap.</Translate>
           </p>
           {user ? (
             <Button

@@ -24,7 +24,7 @@ export interface ContentChunk {
   source_url: string;
 }
 
-export class LearnifyContentScraper {
+export class SkillSwapContentScraper {
   private browser: Browser | null = null;
   private baseUrl: string;
   private scrapedUrls: Set<string> = new Set();
@@ -38,7 +38,7 @@ export class LearnifyContentScraper {
    * Initialize the browser
    */
   async initialize(): Promise<void> {
-    console.log('🚀 Starting Learnify content scraper...');
+    console.log('🚀 Starting SkillSwap content scraper...');
     this.browser = await puppeteer.launch({
       headless: true, // Fixed: Changed from 'new' to true for compatibility
       args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
@@ -137,7 +137,7 @@ export class LearnifyContentScraper {
         // Get title
         const title = document.title || 
                      document.querySelector('h1')?.textContent || 
-                     'Learnify Page';
+                     'SkillSwap Page';
 
         // Get main content
         const contentSelectors = [
@@ -391,7 +391,7 @@ export class LearnifyContentScraper {
 
     // Clear existing scraped content (optional - uncomment if you want fresh data)
     // await supabase
-    //   .from('learnify_content_vectors')
+    //   .from('SkillSwap_content_vectors')
     //   .delete()
     //   .in('content_type', ['page', 'feature', 'tool', 'course', 'roadmap']);
 
@@ -401,7 +401,7 @@ export class LearnifyContentScraper {
       const batch = this.contentChunks.slice(i, i + batchSize);
       
       const { error } = await supabase
-        .from('learnify_content_vectors')
+        .from('SkillSwap_content_vectors')
         .insert(batch.map(chunk => ({
           content_id: chunk.content_id,
           content_type: chunk.content_type,

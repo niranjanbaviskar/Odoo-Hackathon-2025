@@ -146,7 +146,7 @@ export default function Layout() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto mt-8 pt-8 border-t border-border text-center">
-          <p className="text-muted-foreground">© {new Date().getFullYear()} Learnify. All rights reserved.</p>
+          <p className="text-muted-foreground">© {new Date().getFullYear()} SkillSwap. All rights reserved.</p>
         </div>
       </footer>
     </div>
