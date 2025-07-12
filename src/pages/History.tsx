@@ -423,3 +423,5 @@ export default function History() {
     </div>
   );
 }
+
+//history text
