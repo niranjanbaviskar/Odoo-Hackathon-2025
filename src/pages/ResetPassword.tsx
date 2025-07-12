@@ -147,3 +147,5 @@ export default function ResetPassword() {
     </div>
   );
 }
+
+//password reset access

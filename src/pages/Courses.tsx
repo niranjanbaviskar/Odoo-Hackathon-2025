@@ -61,7 +61,7 @@ const ITEMS_PER_PAGE = 6;
 export default function Courses() {
   const navigate = useNavigate();
 
-  // State variables
+  // State variables .
   const [courses, setCourses] = useState<CourseWithRating[]>([]);
   const [filteredCourses, setFilteredCourses] = useState<CourseWithRating[]>(
     []

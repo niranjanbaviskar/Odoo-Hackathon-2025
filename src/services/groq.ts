@@ -20,7 +20,7 @@ if (!apiKey) {
   console.log("✅ API key starts with:", apiKey.substring(0, 8) + "...");
 }
 
-// Initialize GROQ SDK with debug logging
+// Initialize GROQ SDK with the debug logging
 let groq: Groq;
 try {
   groq = new Groq({

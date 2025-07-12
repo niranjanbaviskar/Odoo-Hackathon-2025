@@ -9,7 +9,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({ password, setPassword }) 
   const [passwordStrength, setPasswordStrength] = useState<number>(0);
   const [generatedPassword, setGeneratedPassword] = useState<string>("");
 
-  // Evaluate password strength on change
+  // Evaluate the password strength on change
   useEffect(() => {
     const result = zxcvbn(password);
     setPasswordStrength(result.score); // score: 0–4

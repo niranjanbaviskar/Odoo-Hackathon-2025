@@ -126,7 +126,7 @@ export default function Navbar() {
     navigate("/");
   };
 
-  // Desktop NavLink
+  // Desktop NavLink 
   const NavLink = ({
     to,
     icon: Icon,
@@ -475,3 +475,5 @@ export default function Navbar() {
     </nav>
   );
 }
+
+//navbar

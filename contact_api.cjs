@@ -10,16 +10,16 @@ const PORT = process.env.PORT || 5500;
 app.use(cors());
 app.use(express.json());
 
-// Configure your transporter (copied from nodemailer_api.cjs)
+// Configure your transporter  (copied from nodemailer_api.cjs)
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.test_dev_mail_id,     //SMTP email address
+    user: process.env.test_dev_mail_id,     //SMTP email addresses
     pass: process.env.test_dev_mail_password,   //app password
   },
 });
 
-// API endpoint to handle contact form submissions
+// API endpoint to the  handle contact form submissions
 app.post('/api/contact', async (req, res) => {
   const { firstName, lastName, email, inquiryType, message } = req.body;
   if (!firstName || !lastName || !email || !message) {

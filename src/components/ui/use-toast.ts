@@ -29,7 +29,7 @@ function genId() {
   return count.toString()
 }
 
-// 
+
 
 type Action =
   | { type: "ADD_TOAST"; toast: ToasterToast }

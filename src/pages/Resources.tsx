@@ -653,7 +653,7 @@ export default function Resources() {
                             </PaginationItem>
                           );
                         }
-                        // Render normal page number
+                        
                         return (
                           <PaginationItem key={page}>
                             <PaginationLink

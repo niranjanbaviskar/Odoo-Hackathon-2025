@@ -122,3 +122,7 @@ export function NewChatDialog({ onChatCreated }: NewChatDialogProps) {
     </Dialog>
   );
 }
+
+
+
+//newchatlock
